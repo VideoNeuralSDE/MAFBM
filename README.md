@@ -1,2 +1,3 @@
-# VideoNeuralSDE.github.io
-Offi
+# Variational Inference for SDEs Driven by Fractional Noise
+
+Official Implementation 
