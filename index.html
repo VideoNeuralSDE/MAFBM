@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Variational Inference for SDEs Driven by Fractional Noise">
+  <meta name="keywords" content="Brownian motion, fractional Brownian motion, SDE, Neural SDE, Video">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variational Inference for SDEs<br>
+  Driven by Fractional Noise</title>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-17MC16WLMB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-17MC16WLMB');
+</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- <h4 class="title conference-title is-4">ICLR 2024</h4> -->
+            <h2 class="title is-2 publication-title">
+              Variational Inference for SDEs<br>
+  Driven by Fractional Noise
+            </h2>
+            <div class="is-size-5 publication-authors">
+			<span class="author-block">
+                <a href="https://rdaems.github.io/">Rembert Daems</a><sup>1,2</sup>,
+              </span>
+			  <span class="author-block">
+                <a href="https://www.birmingham.ac.uk/staff/profiles/metabolism-systems/opper-manfred">Manfred Opper</a><sup>3,4,5</sup>,
+              </span>
+			  <span class="author-block">
+                <a href="https://ai.ugent.be/people/GuillaumeCrevecoeur.en.html">Guillaume Crevecoeur</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://tolgabirdal.github.io">Tolga Birdal</a><sup>6</sup>
+              </span>              
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> D2LAB, Dept. Electromech. Systems and Metal Eng., Ghent University, Belgium,</span>
+			  <span class="author-block"><sup>2</sup> Core lab EEDT Decision & Control, Flanders Make, Belgium,</span>
+			  <span class="author-block"><sup>3</sup> Dept. of Theor. Comp. Science, Technical University of Berlin, Germany,</span>
+			  <span class="author-block"><sup>4</sup> Inst. of Mathematics, University of Potsdam, Germany,</span>
+              <span class="author-block"><sup>5</sup> Centre for Systems Modelling and Quant. Biomed., University of Birmingham, UK,</span>
+			  <span class="author-block"><sup>6</sup> Dept. of Computing, Imperial College London, UK</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.12975" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/VideoNeuralSDE/MAFBM" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/VideoNeuralSDE/MAFBM" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video (coming soon)</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h5 class="subtitle is-5">
+        We present the first variational inference framework for non-Markovian neural SDEs driven by fractional Brownian Motion. Our method builds upon the idea of approximating the fBM by a linear combination of Markov processes, driven by the same, Brownian motion. We then provide the variational prior and posterior, as well as the EBLO.
+
+        </h5>
+        <img src="./static/images/teaser.jpg" autoplay muted loop playsinline height="100%">
+        <h2 class="subtitle has-text-centered">
+          Figure 1: We leverage the Markov approximation, where the non-Markovian fractional Brownian motion with Hurst index H is approximated by a linear combination of a finite number of Markov processes, and propose a variational inference framework in which the posterior is steered by a control term u(t). Note the long-term memory behaviour of the processes, where individual Y_k(t) have varying
+    transient effects, from Y_1(t) having the longest memory to Y_7(t) the shortest, and tend to forget the action of u(t) after a certain time frame.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+<!-- Demo video-->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+	  <h2 class="title is-3">Videos</h2>
+	
+           <div class="column">
+             <div class="content">
+               <div class="publication-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/GvIjKpgWfxI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+             </div>
+            </div>
+	
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+<!-- End Demo video -->
+
+<!-- Paper abstract -->
+<!-- <p style="margin-bottom: -1.5cm;"></p> -->
+  <!-- <p style="margin-bottom: -1.5cm;"></p> -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+             We present a novel variational framework for performing inference in (neural) stochastic differential equations (SDEs) driven by Markov-approximate fractional Brownian motion (fBM). SDEs offer a versatile tool for modeling real-world continuous-time dynamic systems with inherent noise and randomness. Combining SDEs with the powerful inference capabilities of variational methods, enables the learning of representative function distributions through stochastic gradient descent. However, conventional SDEs typically assume the underlying noise to follow a Brownian motion (BM), which hinders their ability to capture long-term dependencies. In contrast, fractional Brownian motion (fBM) extends BM to encompass non-Markovian dynamics, but existing methods for inferring fBM parameters are either computationally demanding or statistically inefficient.
+
+			In this paper, building upon the Markov approximation of fBM, we derive the evidence lower bound essential for efficient variational inference of posterior path measures, drawing from the well-established field of stochastic analysis. Additionally, we provide a closed-form expression to determine optimal approximation coefficients. Furthermore, we propose the use of neural networks to learn the drift, diffusion and control terms within our variational posterior, leading to the variational training of neural-SDEs. In this framework, we also optimize the Hurst index, governing the nature of our fractional noise. Beyond validation on synthetic data, we contribute a novel architecture for variational latent video prediction,—an approach that, to the best of our knowledge, enables the first variational neural-SDE application to video perception.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- End paper abstract -->
+
+  <p style="margin-bottom: 1.5cm;"></p>
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h3 class="title is-3 has-text-centered">Application to Modeling Video as a Stochastic Process</h3>
+        <br>
+          <img src="./static/images/model.jpg" autoplay muted loop playsinline height="100%">
+          <h2 class="subtitle has-text-centered">
+            Figure 4: Schematic of the latent SDE video model. Video frames {o_i} are encoded to vectors {h_i}. The static content vector w, that is free of the dynamic information, is inferred from {h_i}. The context model processes the information with temporal convolution layers, so that its outputs {g_i} contain information from neighbouring frames. A linear interpolation on {g_i} allows the posterior SDE model to receive time--appropriate information g(t), at (intermediate) time-steps chosen by the SDE solver. Finally, the states {x_i} and static w are decoded to reconstruct frames {o'_i}.
+          </h2>
+        <br/>
+      </div>
+    </div>
+  </section>
+<!-- End Application -->
+
+
+
+<!-- Results -->
+<p style="margin-bottom: -1.5cm;"></p>	
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+<!--         <h2 class="title is-3">Visualization of Annotations</h2> -->
+	      <div id="results-carousel" class="carousel results-carousel">
+	       <div class="item">
+		<!-- Your image here -->
+		<img src="static/images/bridge.jpg" alt="MY ALT TEXT"/>
+		<h2 class="subtitle has-text-centered">
+		   Figure 2: Recovering the Fractional Ornstein–Uhlenbeck Bridge: The true variance (blue) of a fOU bridge matches the empirical variance (dashed orange) of our trained models. The transparent black lines are the sampled approximate posterior paths used to calculate the empirical variance.
+		</h2>
+	      </div>
+	      <div class="item">
+		<!-- Your image here -->
+		<img src="static/images/rec1.jpg" alt="MY ALT TEXT"/>
+		<h2 class="subtitle has-text-centered">
+		  Figure 18: Posterior reconstructions of a model driven by BM and a model driven by MA-fBM, conditioned on the same Moving-MNIST data ('Ground truth').
+		</h2>   
+	      </div>
+		  <div class="item">
+		<!-- Your image here -->
+		<img src="static/images/rec2.jpg" alt="MY ALT TEXT"/>
+		<h2 class="subtitle has-text-centered">
+		  Figure 19: Posterior reconstructions of a model driven by BM and a model driven by MA-fBM, trained on the double pendulum dataset. Both are conditioned on the same data ('Ground truth'). We show 7 evenly spaced frames of the total 20 frames.
+		</h2>   
+	      </div>
+	      <div class="item">
+		<!-- Your image here -->
+		<img src="static/images/pred.jpg" alt="MY ALT TEXT"/>
+		<h2 class="subtitle has-text-centered">
+		  Figure 20: Stochastic predictions using the trained prior of a model driven by BM and a model driven by MA-fBM, where the initial state is conditioned on the same data. Four samples are shown for each model. The MA-fBM samples show more diverse movements, thus better capturing the dynamics in the data. The BM samples are more similar, indicating a less powerful prior was learned.
+		</h2>
+	      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End Results -->
+
+
+
+  <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{daems2024variational,
+title={Variational Inference for {SDE}s Driven by Fractional Noise},
+author={Rembert Daems and Manfred Opper and Guillaume Crevecoeur and Tolga Birdal},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=rtx8B94JMS}
+}</code></pre>
+      </div>
+  </section>
+  <!--End BibTex citation -->
+
+  <p style="margin-bottom: -1.5cm;"></p>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content is-size-6">
+  </code></pre>
+  <h2 class="title">Contact us</h2>
+  <style>
+    ul {
+      list-style-type: circle;
+    }
+  </style>
+  <ul>
+    <li> For detailed questions about this work, please contact:
+	<br>Rembert Daems (<a href="rembert.daems@ugent.be">rembert.daems@ugent.be</a>) and Tolga Birdal (<a href="tbirdal@imperial.ac.uk">tbirdal@imperial.ac.uk</a>). </li>
+  </ul>
+      </div>
+  </section>
+  
+<!--   <p style="margin-bottom: -1.5cm;"></p>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content is-size-6">
+  </code></pre>
+  <h2 class="title">License</h2>
+  <style>
+    ul {
+      list-style-type: circle;
+    }
+  </style>
+  <ul>
+    All data is distributed under the CC BY-NC-SA (Attribution-NonCommercial-ShareAlike) license. For the sub-datasets, although we annotate the motion-text labels with our annoation pipeline, we would ask the user to read the original license of each original dataset, 
+      and we would only provide our annotated result to the user with the approvals from the original Institution. 
+      Here we provide the link of the used assets:  </li>
+    <li> <a href="https://mimoza.marmara.edu.tr/~cigdem.erdem/BAUM1/">BAUM</a>, <a href="https://google.github.io/aistplusplus_dataset/">AIST++</a>, 
+      <a href="https://sanweiliti.github.io/egobody/egobody.html">EgoBody</a>  datasets are CC-BY 4.0 licensed. </li>
+    <li> <a href="https://www.cse.ust.hk/haa/">HAA500</a> dataset is MIT licensed.  </li>
+    <li> <a href="https://caizhongang.github.io/projects/HuMMan/">HuMMan</a> dataset is under S-Lab License v1.0. </li>
+    <li> <a href="https://rose1.ntu.edu.sg/dataset/actionRecognition/">NTU-RGBD120</a>, 
+      <a href="https://grab.is.tue.mpg.de/">GRAB</a>, <a href="https://amass.is.tue.mpg.de/">AMASS</a> dataset is released for academic research only and is free to researchers from educational or research institutes for non-commercial purposes. </li>
+    <li> Other data is under CC BY-SA 4.0 license. </li>
+
+  </ul>
+      </div>
+  </section> -->
+    
+  
+  <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-size-6">
+            <div class="content">
+              <p>
+	       This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+               Commons Attribution-ShareAlike 4.0 International License</a>.
+	       
+	       This page was built using the <a href="https://nerfies.github.io/" target="_blank">Nerfies website</a>.
+	  	</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+  </html>
